@@ -1,0 +1,10 @@
+/* Ticker host element — isolated via Shadow DOM, this file is intentionally minimal */
+#crickit-ticker-host {
+  all: initial;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2147483647;
+  font-family: 'Outfit', system-ui, sans-serif;
+}

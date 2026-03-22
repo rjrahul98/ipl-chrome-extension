@@ -1,0 +1,36 @@
+{
+  "manifest_version": 3,
+  "name": "CricKit — AI Cricket Companion",
+  "version": "0.1.0",
+  "description": "AI-powered live cricket scores, smart notifications, and match insights for IPL 2026",
+  "action": {
+    "default_popup": "src/popup/popup.html",
+    "default_icon": {
+      "16": "src/assets/icons/icon16.png",
+      "48": "src/assets/icons/icon48.png",
+      "128": "src/assets/icons/icon128.png"
+    }
+  },
+  "background": {
+    "service_worker": "src/background/index.ts",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["src/content/ticker.tsx"],
+      "css": ["src/content/ticker.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "permissions": ["storage", "alarms", "notifications"],
+  "host_permissions": [
+    "https://api.cricapi.com/*",
+    "https://api.anthropic.com/*"
+  ],
+  "icons": {
+    "16": "src/assets/icons/icon16.png",
+    "48": "src/assets/icons/icon48.png",
+    "128": "src/assets/icons/icon128.png"
+  }
+}
